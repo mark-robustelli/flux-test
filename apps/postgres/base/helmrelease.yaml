@@ -1,6 +1,8 @@
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
-metadata: { name: postgres, namespace: fusionauth }
+metadata:
+  name: postgres
+  namespace: fusionauth
 spec:
   interval: 10m
   chart:
@@ -11,12 +13,12 @@ spec:
         kind: HelmRepository
         name: bitnami-oci
         namespace: flux-system
-    spec:
-      sourceRef: { kind: HelmRepository, name: bitnami, namespace: flux-system }
   values:
     auth:
       username: fusionauth
       password: changeMeSuperSecret
       database: fusionauth
     primary:
-      persistence: { enabled: true, size: 10Gi }
+      persistence:
+        enabled: true
+        size: 10Gi
