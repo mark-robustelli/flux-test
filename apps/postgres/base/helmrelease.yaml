@@ -6,6 +6,12 @@ spec:
   chart:
     spec:
       chart: postgresql
+      version: 16.7.27
+      sourceRef:
+        kind: HelmRepository
+        name: bitnami-oci
+        namespace: flux-system
+    spec:
       sourceRef: { kind: HelmRepository, name: bitnami, namespace: flux-system }
   values:
     auth:
