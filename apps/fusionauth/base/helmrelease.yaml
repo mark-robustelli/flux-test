@@ -11,11 +11,15 @@ spec:
   upgrade: { remediation: { retries: 3 } }
   values:
     database:
+  protocol: postgresql
       protocol: postgresql
       host: postgres-postgresql.fusionauth.svc.cluster.local
       port: 5432
       name: fusionauth
-      username: fusionauth
+      user: fusionauth
       password: changeMeSuperSecret
+    root:
+      user: "postgres"
+      password: "changeMeSuperSecureRoot"
     service: { type: NodePort }
     ingress: { enabled: false }
