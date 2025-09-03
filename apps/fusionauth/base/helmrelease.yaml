@@ -5,6 +5,11 @@ metadata:
   namespace: fusionauth
 spec:
   interval: 10m
+  timeout: 10m0s
+  install:
+    timeout 10m0s
+  upgrade:
+    timeout: 10m0s
   chart:
     spec:
       chart: fusionauth

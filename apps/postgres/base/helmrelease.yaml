@@ -5,6 +5,11 @@ metadata:
   namespace: fusionauth
 spec:
   interval: 10m
+  timeout: 10m0s
+  install:
+    timeout 10m0s
+  upgrade:
+    timeout: 10m0s
   chart:
     spec:
       chart: postgresql
@@ -20,5 +25,5 @@ spec:
       database: fusionauth
     primary:
       persistence:
-        enabled: true
+        enabled: false
         size: 10Gi
