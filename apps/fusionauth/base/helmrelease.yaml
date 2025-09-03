@@ -24,6 +24,8 @@ spec:
       name: fusionauth
       user: fusionauth
       password: changeMeSuperSecret
+    search:
+      engine: database
     service:
       type: NodePort
     ingress:
