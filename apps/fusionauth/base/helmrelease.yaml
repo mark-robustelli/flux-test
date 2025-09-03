@@ -1,0 +1,21 @@
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata: { name: fusionauth, namespace: fusionauth }
+spec:
+  interval: 10m
+  chart:
+    spec:
+      chart: fusionauth
+      sourceRef: { kind: HelmRepository, name: fusionauth, namespace: flux-system }
+  install: { remediation: { retries: 3 } }
+  upgrade: { remediation: { retries: 3 } }
+  values:
+    database:
+      protocol: postgresql
+      host: postgres-postgresql.fusionauth.svc.cluster.local
+      port: 5432
+      name: fusionauth
+      username: fusionauth
+      password: changeMeSuperSecret
+    service: { type: NodePort }
+    ingress: { enabled: false }
