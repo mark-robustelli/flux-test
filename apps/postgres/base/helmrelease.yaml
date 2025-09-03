@@ -1,4 +1,4 @@
-apiVersion: helm.toolkit.fluxcd.io/v2
+piVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
   name: postgres
@@ -7,9 +7,13 @@ spec:
   interval: 10m
   timeout: 10m0s
   install:
-    timeout 10m0s
+    timeout: 10m0s
+    remediation:
+      retries: 3
   upgrade:
     timeout: 10m0s
+    remediation:
+      retries: 3
   chart:
     spec:
       chart: postgresql
@@ -25,5 +29,4 @@ spec:
       database: fusionauth
     primary:
       persistence:
-        enabled: true
-        size: 5Gi
+        enabled: false 

@@ -7,21 +7,30 @@ spec:
   interval: 10m
   timeout: 10m0s
   install:
-    timeout 10m0s
+    timeout: 10m0s
+    remediation:
+      retries: 3
   upgrade:
     timeout: 10m0s
+    remediation:
+      retries: 3
+
+  # Ensure FA only installs after Postgres is healthy
+  dependsOn:
+    - name: postgres
+      namespace: fusionauth
+
   chart:
     spec:
       chart: fusionauth
+      # optionally pin: version: 1.59.1
       sourceRef:
         kind: HelmRepository
         name: fusionauth
         namespace: flux-system
-  install:
-    remediation: { retries: 3 }
-  upgrade:
-    remediation: { retries: 3 }
+
   values:
+    # --- Database config ---
     database:
       protocol: postgresql
       host: postgres-postgresql.fusionauth.svc.cluster.local
@@ -29,9 +38,14 @@ spec:
       name: fusionauth
       user: fusionauth
       password: changeMeSuperSecret
+
+    # --- Use DB search (no Elasticsearch) ---
     search:
       engine: database
+
+    # --- Service/Ingress for Docker provider ---
     service:
       type: NodePort
     ingress:
       enabled: false
+
