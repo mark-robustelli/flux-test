@@ -25,5 +25,5 @@ spec:
       database: fusionauth
     primary:
       persistence:
-        enabled: false
-        size: 10Gi
+        enabled: true
+        size: 5Gi
