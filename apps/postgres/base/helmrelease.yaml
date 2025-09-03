@@ -24,9 +24,9 @@ spec:
         namespace: flux-system
   values:
     auth:
-      username: fusionauth
+      username: postgres
       password: changeMeSuperSecret
-      database: fusionauth
+      database: mydatabase
     primary:
       persistence:
         enabled: false 

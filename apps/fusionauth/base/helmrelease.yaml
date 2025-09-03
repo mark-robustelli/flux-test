@@ -38,6 +38,10 @@ spec:
       name: fusionauth
       user: fusionauth
       password: changeMeSuperSecret
+        root:
+          user: postgres
+          password: changeMeSuperSecret
+      	
 
     # --- Use DB search (no Elasticsearch) ---
     search:
