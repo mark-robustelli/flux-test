@@ -37,12 +37,8 @@ spec:
       port: 5432
       name: fusionauth
       # Application user (least-priv)
-      user: fusionauth
-      password: changeMeSuperSecret1
-      # Admin/root (used for bootstrap/migrations if needed)
-      root:
-        user: postgres
-        password: changeMeSuperSecret
+      user: postgres
+      password: changeMeSuperSecret
 
     # Use database search (no Elasticsearch)
     search:

@@ -28,7 +28,7 @@ spec:
       username: postgres
       password: changeMeSuperSecret
       # Create an application database for FusionAuth
-      database: mydb
+      database: fusionauth
     primary:
       persistence:
         enabled: false  # disable PVCs for EKS-A docker dev env; set true if you have storageclass
