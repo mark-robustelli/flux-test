@@ -10,12 +10,8 @@ spec:
   sourceRef:
     kind: GitRepository
     name: flux-system
-
-  # Make apps apply after infra (repos)
   dependsOn:
     - name: infra
-
-  # Keep reconciles from timing out while images/pods start
   wait: false
   timeout: 10m0s
 
