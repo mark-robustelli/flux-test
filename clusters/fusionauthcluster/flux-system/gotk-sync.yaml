@@ -11,7 +11,7 @@ spec:
     branch: main
   secretRef:
     name: flux-system
-  url: http://git@github.com/mark-robustelli/flux-test
+  url: https://git@github.com/mark-robustelli/flux-test
 ---
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
