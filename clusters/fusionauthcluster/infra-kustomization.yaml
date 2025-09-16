@@ -3,6 +3,6 @@ kind: Kustomization
 metadata: { name: infra, namespace: flux-system }
 spec:
   interval: 5m
-  path: ./infra
+  path: ./infra/sources
   prune: true
   sourceRef: { kind: GitRepository, name: flux-system }
